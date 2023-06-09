@@ -17,7 +17,7 @@ document.getElementById("tinhTong3Mon").onclick = function () {
         result += "<p>Kết quả: Thí sinh trượt tuyển</p>";
         getEle("hienThiKetQuaThi").innerHTML = result;
     } else if (tongDiem >= diemChuanHoiDong) {
-        var result = "<p> Tổng điểm là: " + tongDiem + " </p>";
+        var result = "<p> Tổng điểm là: " + tongDiem + "đ </p>";
         result += "<p>Kết quả: Thí sinh trúng tuyển</p>";
         getEle("hienThiKetQuaThi").innerHTML = result;
     } else {
@@ -103,34 +103,34 @@ const den384 = 20 / 100;
 const den624 = 25 / 100;
 const den960 = 30 / 100;
 const denhet = 35 / 100;
-var mucThue1=0;
-var mucThue2=0;
-var mucThue3=0;
-var mucThue4=0;
-var mucThue5=0;
-var mucThue6=0;
-var mucThue7=0;
-var thueThuNhap=0;
-function thueMuc1(thuNhapChiuThue,mucthue){
-    return thuNhapChiuThue*mucthue;
+var mucThue1 = 0;
+var mucThue2 = 0;
+var mucThue3 = 0;
+var mucThue4 = 0;
+var mucThue5 = 0;
+var mucThue6 = 0;
+var mucThue7 = 0;
+var thueThuNhap = 0;
+function thueMuc1(thuNhapChiuThue, mucthue) {
+    return thuNhapChiuThue * mucthue;
 }
-function thueMuc2(thuNhapChiuThue,mucthue){
-    return (thuNhapChiuThue-60000000)*mucthue;
+function thueMuc2(thuNhapChiuThue, mucthue) {
+    return (thuNhapChiuThue - 60000000) * mucthue;
 }
-function thueMuc3(thuNhapChiuThue,mucthue){
-    return (thuNhapChiuThue-120000000)*mucthue;
+function thueMuc3(thuNhapChiuThue, mucthue) {
+    return (thuNhapChiuThue - 120000000) * mucthue;
 }
-function thueMuc4(thuNhapChiuThue,mucthue){
-    return (thuNhapChiuThue-210000000)*mucthue;
+function thueMuc4(thuNhapChiuThue, mucthue) {
+    return (thuNhapChiuThue - 210000000) * mucthue;
 }
-function thueMuc5(thuNhapChiuThue,mucthue){
-    return (thuNhapChiuThue-384000000)*mucthue;
+function thueMuc5(thuNhapChiuThue, mucthue) {
+    return (thuNhapChiuThue - 384000000) * mucthue;
 }
-function thueMuc6(thuNhapChiuThue,mucthue){
-    return (thuNhapChiuThue-624000000)*mucthue;
+function thueMuc6(thuNhapChiuThue, mucthue) {
+    return (thuNhapChiuThue - 624000000) * mucthue;
 }
-function thueMuc7(thuNhapChiuThue,mucthue){
-    return (thuNhapChiuThue-960000000)*mucthue;
+function thueMuc7(thuNhapChiuThue, mucthue) {
+    return (thuNhapChiuThue - 960000000) * mucthue;
 }
 
 getEle("tinhThueThuNhap").onclick = function () {
@@ -139,65 +139,137 @@ getEle("tinhThueThuNhap").onclick = function () {
     var nguoiPhuThuoc = getEle("nguoiPhuThuoc").value * 1;
     var thuNhapChiuThue = tongThuNhapNam - 4000000 - nguoiPhuThuoc * 1600000;
     // chuyển thành VNĐ
-    var numberFormat=new Intl.NumberFormat("Vn-vn");
+    var numberFormat = new Intl.NumberFormat("Vn-vn");
     if (0 < thuNhapChiuThue && thuNhapChiuThue <= 60000000) {
-        mucThue1=thueMuc1(thuNhapChiuThue,den60);
+        mucThue1 = thueMuc1(thuNhapChiuThue, den60);
         thueThuNhap = mucThue1;
         var xuatthue = "<p>Họ tên: " + hoten + " </p>";
         xuatthue += "<p>Thuế phải trả: " + numberFormat.format(thueThuNhap) + " Vnđ</p>";
     } else if (60000000 < thuNhapChiuThue && thuNhapChiuThue <= 120000000) {
-        mucThue1=thueMuc1(thuNhapChiuThue,den60);
-        mucThue2=thueMuc2(thuNhapChiuThue,den120);
-         thueThuNhap = mucThue1+mucThue2;
+        mucThue1 = thueMuc1(thuNhapChiuThue, den60);
+        mucThue2 = thueMuc2(thuNhapChiuThue, den120);
+        thueThuNhap = mucThue1 + mucThue2;
         var xuatthue = "<p>Họ tên: " + hoten + " </p>";
         xuatthue += "<p>Thuế phải trả: " + numberFormat.format(thueThuNhap) + " Vnđ</p>";
     } else if (120000000 < thuNhapChiuThue && thuNhapChiuThue <= 2100000000) {
-        mucThue1=thueMuc1(thuNhapChiuThue,den60);
-        mucThue2=thueMuc2(thuNhapChiuThue,den120);
-        mucThue3=thueMuc3(thuNhapChiuThue,den210);
-         thueThuNhap = mucThue1+mucThue2+mucThue3;
+        mucThue1 = thueMuc1(thuNhapChiuThue, den60);
+        mucThue2 = thueMuc2(thuNhapChiuThue, den120);
+        mucThue3 = thueMuc3(thuNhapChiuThue, den210);
+        thueThuNhap = mucThue1 + mucThue2 + mucThue3;
         var xuatthue = "<p>Họ tên: " + hoten + " </p>";
         xuatthue += "<p>Thuế phải trả: " + numberFormat.format(thueThuNhap) + " Vnđ</p>";
     } else if (2100000000 < thuNhapChiuThue && thuNhapChiuThue <= 384000000) {
-        mucThue1=thueMuc1(thuNhapChiuThue,den60);
-        mucThue2=thueMuc2(thuNhapChiuThue,den120);
-        mucThue3=thueMuc3(thuNhapChiuThue,den210);
-        mucThue4=thueMuc4(thuNhapChiuThue,den384);
-         thueThuNhap = mucThue1+mucThue2+mucThue3+mucThue4;
+        mucThue1 = thueMuc1(thuNhapChiuThue, den60);
+        mucThue2 = thueMuc2(thuNhapChiuThue, den120);
+        mucThue3 = thueMuc3(thuNhapChiuThue, den210);
+        mucThue4 = thueMuc4(thuNhapChiuThue, den384);
+        thueThuNhap = mucThue1 + mucThue2 + mucThue3 + mucThue4;
         var xuatthue = "<p>Họ tên: " + hoten + " </p>";
         xuatthue += "<p>Thuế phải trả: " + numberFormat.format(thueThuNhap) + " Vnđ</p>";
     } else if (384000000 < thuNhapChiuThue && thuNhapChiuThue <= 624000000) {
-        mucThue1=thueMuc1(thuNhapChiuThue,den60);
-        mucThue2=thueMuc2(thuNhapChiuThue,den120);
-        mucThue3=thueMuc3(thuNhapChiuThue,den210);
-        mucThue4=thueMuc4(thuNhapChiuThue,den384);
-        mucThue5=thueMuc5(thuNhapChiuThue,den624);
-         thueThuNhap = mucThue1+mucThue2+mucThue3+mucThue4+mucThue5;
+        mucThue1 = thueMuc1(thuNhapChiuThue, den60);
+        mucThue2 = thueMuc2(thuNhapChiuThue, den120);
+        mucThue3 = thueMuc3(thuNhapChiuThue, den210);
+        mucThue4 = thueMuc4(thuNhapChiuThue, den384);
+        mucThue5 = thueMuc5(thuNhapChiuThue, den624);
+        thueThuNhap = mucThue1 + mucThue2 + mucThue3 + mucThue4 + mucThue5;
         var xuatthue = "<p>Họ tên: " + hoten + " </p>";
         xuatthue += "<p>Thuế phải trả: " + numberFormat.format(thueThuNhap) + " Vnđ</p>";
-    }else if(624000000<thuNhapChiuThue&&thuNhapChiuThue<=960000000){
-        mucThue1=thueMuc1(thuNhapChiuThue,den60);
-        mucThue2=thueMuc2(thuNhapChiuThue,den120);
-        mucThue3=thueMuc3(thuNhapChiuThue,den210);
-        mucThue4=thueMuc4(thuNhapChiuThue,den384);
-        mucThue5=thueMuc5(thuNhapChiuThue,den624);
-        mucThue6=thueMuc6(thuNhapChiuThue,den960);
-        thueThuNhap = mucThue1+mucThue2+mucThue3+mucThue4+mucThue5+mucThue6;
+    } else if (624000000 < thuNhapChiuThue && thuNhapChiuThue <= 960000000) {
+        mucThue1 = thueMuc1(thuNhapChiuThue, den60);
+        mucThue2 = thueMuc2(thuNhapChiuThue, den120);
+        mucThue3 = thueMuc3(thuNhapChiuThue, den210);
+        mucThue4 = thueMuc4(thuNhapChiuThue, den384);
+        mucThue5 = thueMuc5(thuNhapChiuThue, den624);
+        mucThue6 = thueMuc6(thuNhapChiuThue, den960);
+        thueThuNhap = mucThue1 + mucThue2 + mucThue3 + mucThue4 + mucThue5 + mucThue6;
         var xuatthue = "<p>Họ tên: " + hoten + " </p>";
         xuatthue += "<p>Thuế phải trả: " + numberFormat.format(thueThuNhap) + " Vnđ</p>";
-    }else if(960000000<thuNhapChiuThue){
-        mucThue1=thueMuc1(thuNhapChiuThue,den60);
-        mucThue2=thueMuc2(thuNhapChiuThue,den120);
-        mucThue3=thueMuc3(thuNhapChiuThue,den210);
-        mucThue4=thueMuc4(thuNhapChiuThue,den384);
-        mucThue5=thueMuc5(thuNhapChiuThue,den624);
-        mucThue6=thueMuc6(thuNhapChiuThue,den960);
-        mucThue7=thueMuc7(thuNhapChiuThue,denhet);
-        thueThuNhap = mucThue1+mucThue2+mucThue3+mucThue4+mucThue5+mucThue6+mucThue7;
+    } else if (960000000 < thuNhapChiuThue) {
+        mucThue1 = thueMuc1(thuNhapChiuThue, den60);
+        mucThue2 = thueMuc2(thuNhapChiuThue, den120);
+        mucThue3 = thueMuc3(thuNhapChiuThue, den210);
+        mucThue4 = thueMuc4(thuNhapChiuThue, den384);
+        mucThue5 = thueMuc5(thuNhapChiuThue, den624);
+        mucThue6 = thueMuc6(thuNhapChiuThue, den960);
+        mucThue7 = thueMuc7(thuNhapChiuThue, denhet);
+        thueThuNhap = mucThue1 + mucThue2 + mucThue3 + mucThue4 + mucThue5 + mucThue6 + mucThue7;
         var xuatthue = "<p>Họ tên: " + hoten + " </p>";
-        xuatthue += "<p>Thuế phải trả: " + numberFormat.format(thueThuNhap)  + " Vnđ</p>";
-    }else{
-        alert("Vui lòng nhập đầy đủ thông tin!!!")
+        xuatthue += "<p>Thuế phải trả: " + numberFormat.format(thueThuNhap) + " Vnđ</p>";
+    } else {
+        alert("Vui lòng nhập đầy đủ thông tin!!!");
     }
-    getEle("hienthithuethunhap").innerHTML=xuatthue;
+    getEle("hienthithuethunhap").innerHTML = xuatthue;
 }
+
+var phiXuLyHoaDon = 0;
+var phiDichVuCoBan = 0;
+var thueKenhCaoCap = 0;
+
+var phiKetNoi = 75;
+function chiPhiDichVu(soKetNoi, chiPhiKetNoi) {
+    return (soKetNoi - 10) * 5 + chiPhiKetNoi;
+}
+
+getEle("nhaDan").onclick = function () {
+    getEle("soKetNoi").disabled = true;
+    phiXuLyHoaDon = 4.5;
+    phiDichVuCoBan = 20.5;
+    thueKenhCaoCap = 7.5;
+}
+getEle("doanhNghiep").onclick = function () {
+    var soKetNoi = getEle("soKetNoi").value * 1;
+    getEle("soKetNoi").disabled = false;
+    phiXuLyHoaDon = 15;
+    thueKenhCaoCap = 50;
+    phiDichVuCoBan = 0;
+    if (0 < soKetNoi && soKetNoi <= 10) {
+        phiDichVuCoBan = 75;
+    } else if (soKetNoi > 10) {
+        phiDichVuCoBan = chiPhiDichVu(soKetNoi, phiKetNoi);
+    } else {
+        alert("Vui lòng nhập đầy đủ thông tin!!!");
+    }
+    console.log(soKetNoi);
+    console.log(phiDichVuCoBan);
+}
+getEle("tinhhoadon").onclick = function () {
+    var maKhachHang = getEle("maKhachHang").value;
+    var kenhCaoCap = getEle("kenhCaoCap").value * 1;
+    var phiKenhCaoCap = kenhCaoCap * thueKenhCaoCap;
+    var total = phiXuLyHoaDon + phiKenhCaoCap + phiDichVuCoBan;
+    var content1 = "";
+    content1 += "<tr>";
+    content1 += "<th>Hóa Đơn</th>";
+    content1 += "</tr>";
+    getEle("theadProduct").innerHTML = content1;
+    var content2 = "";
+    content2 += "<tr>";
+    content2 += "<td>Mã Số Khách Hàng</td>";
+    content2 += "<td>" + maKhachHang + "</td>";
+    content2 += "</tr>";
+    content2 += "<tr>";
+    content2 += "<td>Chi Phí</td>";
+    content2 += "<td>" + total + " $</td>";
+    content2 += "</tr>";
+    getEle("tbodyProduct").innerHTML = content2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
